@@ -8,23 +8,24 @@
 <html lang="en">
 
 <head>
-  <title>Sistema:control de usuario</title>
+  <title>Sistema: control de usuario</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+  <!-- ========== Seccion Bootstrap CSS v5.2.1 ========== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ========== Iconos Bootsrap ========== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body>
   <header>
-    <!-- place navbar here -->
+    <?php
+      include("./partials/navbar.html");
+    ?>
   </header>
   <main>
-    <div class="container h-100" style="padding-top: 4rem;">
+    <div class="container h-100" style="padding-top: 3rem;">
       <div class="row justify-content-center align-item-center h-100">
         <div class="col-12 col-sm-12 col-md-3 mb-3">
           <div class="card" style="background-color:darkgrey;">
@@ -66,23 +67,18 @@
                 <tbody>
                   <?php
                   require("./connection/connection.php");
-
                   $query = "SELECT * FROM usuario";
-
                   $ejecutar = mysqli_query($connection,$query);
-
                   $contador = 1;
-
-                  while($fila = mysqli_fetch_array($ejecutar)){
-                    //print_r($fila);
+                  while($fila = mysqli_fetch_array($ejecutar)){//print_r($fila);
                   ?>
                   <tr>
                     <td><?php echo $contador;?></td>
                     <td><?php echo $fila['nombre'];?></td>
                     <td><?php echo $fila['email'];?></td>
                     <td><?php echo $fila['tel'];?></td>
-                    <td><a href="./function/update.php">editar</a></td>
-                    <td><a href="./function/delete.php?id=<?php echo $fila['id_usuario'];?>">eliminar</a></td>
+                    <td><a href="./view/update_form.php?id=<?php echo $fila['id_usuario'];?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
+                    <td><a href="./function/delete.php?id=<?php echo $fila['id_usuario'];?>"><i class="bi bi-trash3 text-danger"></i></a></td>
                   </tr>
                   <?php $contador++; } ?>
                 </tbody>
@@ -98,12 +94,10 @@
     <!-- place footer here -->
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js">
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js">
   </script>
 </body>
 
