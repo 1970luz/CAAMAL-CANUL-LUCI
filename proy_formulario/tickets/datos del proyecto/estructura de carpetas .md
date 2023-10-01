@@ -1,0 +1,23 @@
+- /proyecto_tickets
+  - /css
+    - styles.css       # Archivos de estilo CSS
+  - /js
+    - script.js        # Archivos de script JavaScript
+  - /includes
+    - header.php       # Encabezado común para todas las páginas
+    - footer.php       # Pie de página común para todas las páginas
+    - config.php       # Archivo de configuración de la base de datos
+    - functions.php    # Funciones PHP reutilizables
+  - /pages
+    - index.php        # Página de inicio de la aplicación
+    - registro.php     # Página de registro de nuevos usuarios
+    - login.php        # Página de inicio de sesión
+    - dashboard_admin.php  # Panel de control de administradores
+    - dashboard_cliente.php  # Panel de control de clientes
+    - tickets.php      # Página para ver y responder a los tickets
+  - /img
+    - logo.png         # Imágenes utilizadas en la aplicación
+  - /vendor            # Carpeta opcional para librerías de terceros (por ejemplo, Bootstrap)
+  - .htaccess          # Configuración de Apache (si es necesario)
+  - index.php          # Página de redirección inicial
+  - README.md          # Documentación del proyecto
